@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "db:test": "node src/utils/testDbConnection.js"
+    "db:test": "node src/utils/testDbConnection.js",
+    "smtp:test": "node src/utils/testEmailConnection.js"
   },
   "keywords": [],
   "author": "",

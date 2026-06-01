@@ -47,6 +47,7 @@ Si no configuras SMTP, la API no enviara el correo real y mostrara el enlace de 
 npm run dev
 npm start
 npm run db:test
+npm run smtp:test -- correo@destino.com
 ```
 
 ## Cambios de base de datos

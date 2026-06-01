@@ -65,6 +65,12 @@ sudo docker compose logs -f frontend
 sudo docker compose down
 ```
 
+Probar SMTP desde el contenedor del backend:
+
+```bash
+sudo docker compose exec backend npm run smtp:test -- correo@destino.com
+```
+
 Para reiniciar la base de datos desde cero:
 
 ```bash
