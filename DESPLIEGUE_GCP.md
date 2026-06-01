@@ -50,7 +50,7 @@ Abre `http://TU_IP_PUBLICA_DE_GOOGLE`.
 
 ## 4. Usuarios demo
 
-Todos usan la contrasena `123456`:
+Todos usan la contrasena `Dokybb04`:
 
 - `admin@barber.com`
 - `barbero@barber.com`

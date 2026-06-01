@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS activity_logs (
 
 INSERT INTO users (id, name, email, password, role, phone, email_verified, email_verified_at, active)
 VALUES
-  (1, 'Administrador', 'admin@barber.com', '$2b$10$rAlC6pSA3rtx.ruGqyRJJ.4/krlwdNwXYCmsg6RHURG0yKdirYs0a', 'admin', '4420000000', 1, NOW(), 1),
-  (2, 'Carlos Barber', 'barbero@barber.com', '$2b$10$rAlC6pSA3rtx.ruGqyRJJ.4/krlwdNwXYCmsg6RHURG0yKdirYs0a', 'barbero', '4421111111', 1, NOW(), 1),
-  (3, 'Cliente Demo', 'cliente@barber.com', '$2b$10$rAlC6pSA3rtx.ruGqyRJJ.4/krlwdNwXYCmsg6RHURG0yKdirYs0a', 'cliente', '4422222222', 1, NOW(), 1)
+  (1, 'Administrador', 'admin@barber.com', '$2b$10$zAuINn/G/XgPgY1cLvCX4O75JXaxMf8nk.KOxYwhL1apYl2qGtvia', 'admin', '4420000000', 1, NOW(), 1),
+  (2, 'Carlos Barber', 'barbero@barber.com', '$2b$10$zAuINn/G/XgPgY1cLvCX4O75JXaxMf8nk.KOxYwhL1apYl2qGtvia', 'barbero', '4421111111', 1, NOW(), 1),
+  (3, 'Cliente Demo', 'cliente@barber.com', '$2b$10$zAuINn/G/XgPgY1cLvCX4O75JXaxMf8nk.KOxYwhL1apYl2qGtvia', 'cliente', '4422222222', 1, NOW(), 1)
 ON DUPLICATE KEY UPDATE email = VALUES(email);
 
 INSERT INTO services (id, name, duration_minutes, price, active)
