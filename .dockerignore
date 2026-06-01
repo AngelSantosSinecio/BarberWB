@@ -1,0 +1,11 @@
+node_modules
+dist
+.angular
+.git
+.env
+.env.*
+npm-debug.log
+angular-server*.log
+build-log.txt
+practica_despliegue_tmp
+practica_despliegue_tmp.zip

@@ -1,1 +1,226 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f4f7ff;
+  --bg-soft: #ebf0ff;
+  --surface: #ffffff;
+  --surface-2: #f8faff;
+  --text: #121828;
+  --text-soft: #5f6b85;
+  --border: #dbe2f1;
+  --shadow: 0 14px 40px rgba(17, 24, 39, 0.12);
+  --shadow-soft: 0 8px 24px rgba(17, 24, 39, 0.08);
+  --color-gold: #d4af37;
+  --color-gold-hover: #c3971f;
+  --color-electric: #007fff;
+  --color-electric-hover: #005fd6;
+  --gradient-primary: linear-gradient(135deg, #007fff 0%, #6f57ff 50%, #c03cff 100%);
+  --gradient-gold: linear-gradient(135deg, #f3da7b 0%, #d4af37 50%, #9f7414 100%);
+}
+
+.dark {
+  --bg: #070b14;
+  --bg-soft: #0f1525;
+  --surface: #11182a;
+  --surface-2: #18223a;
+  --text: #e9efff;
+  --text-soft: #9aa8c9;
+  --border: #293651;
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(0, 127, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(212, 175, 55, 0.15), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  @apply transition-colors duration-500 overflow-x-hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #36435f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+  50% { box-shadow: 0 0 24px 8px rgba(212, 175, 55, 0.28); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-float { animation: softFloat 4s ease-in-out infinite; }
+
+.glass-card {
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  box-shadow: var(--shadow-soft);
+  @apply backdrop-blur-2xl transition-all duration-300 rounded-3xl relative overflow-hidden;
+}
+.glass-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.premium-btn {
+  background: var(--gradient-primary);
+  @apply text-white font-semibold flex items-center justify-center gap-2 py-3 px-6 rounded-2xl transition-all duration-300 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed border border-transparent;
+  box-shadow: 0 10px 22px rgba(0, 127, 255, 0.28);
+}
+.premium-btn:hover {
+  filter: saturate(1.15);
+  transform: translateY(-1px);
+}
+
+.premium-btn-gold {
+  background: var(--gradient-gold);
+  @apply text-black font-bold flex items-center justify-center gap-2 py-3 px-6 rounded-2xl transition-all duration-300 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed border border-transparent;
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.25);
+}
+
+.premium-btn-outline {
+  @apply bg-transparent border text-gray-700 dark:text-gray-200 font-semibold py-2.5 px-6 rounded-2xl transition-all duration-300 transform active:scale-95 disabled:opacity-50;
+  border-color: var(--border);
+}
+.premium-btn-outline:hover {
+  border-color: var(--color-electric);
+  color: var(--color-electric);
+}
+
+.gold-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#f9df88] drop-shadow-sm;
+}
+
+.electric-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-[#007FFF] to-[#3399FF] drop-shadow-sm;
+}
+
+.premium-input {
+  @apply w-full rounded-2xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-2) 78%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+.premium-input:focus {
+  box-shadow:
+    0 0 0 4px rgba(0, 127, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.premium-select {
+  @apply w-full rounded-2xl px-4 py-3.5 appearance-none focus:outline-none focus:ring-2 transition-all;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-2) 84%, transparent);
+}
+
+.table-modern {
+  @apply w-full border-separate;
+  border-spacing: 0 8px;
+}
+.table-modern thead th {
+  color: var(--text-soft);
+  @apply text-left text-xs uppercase tracking-wider font-semibold px-4 pb-1;
+}
+.table-modern tbody tr {
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  border: 1px solid var(--border);
+  @apply transition-all duration-300;
+}
+.table-modern tbody tr:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+.table-modern tbody td {
+  @apply px-4 py-4 align-middle;
+}
+.table-modern tbody td:first-child {
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+.table-modern tbody td:last-child {
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center text-center rounded-3xl py-16 px-8 border;
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
+  border-color: var(--border);
+  color: var(--text-soft);
+}
+
+.page-shell {
+  @apply animate-fade-in;
+}
+
+.premium-gradient {
+  background: var(--gradient-primary);
+}
+
+.icon-chip {
+  @apply w-10 h-10 rounded-xl flex items-center justify-center;
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
+  border: 1px solid var(--border);
+}
+
+.status-badge {
+  @apply px-3 py-1 text-xs font-bold rounded-full border;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    @apply rounded-2xl;
+  }
+}
